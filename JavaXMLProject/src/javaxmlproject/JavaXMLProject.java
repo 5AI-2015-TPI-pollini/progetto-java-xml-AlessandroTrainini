@@ -16,7 +16,7 @@ public class JavaXMLProject {
      */
     public static void main(String[] args) {
        System.out.println("ciao");
-       System.out.println("mamma ciao"); // bho modifica
+       System.out.println("ciao"); // bho modifica
     }
     
 }
