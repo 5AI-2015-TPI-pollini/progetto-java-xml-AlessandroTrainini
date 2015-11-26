@@ -17,7 +17,7 @@ public class ProxyAuthenticator extends Authenticator {
             System.setProperty("http.proxyHost", "192.168.0.1");
             System.setProperty("http.proxyPort", "8080");
             Authenticator.setDefault(new Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {    
+                 protected PasswordAuthentication getPasswordAuthentication() {    
                     return new PasswordAuthentication(userName,password.toCharArray());
                 }
             });
