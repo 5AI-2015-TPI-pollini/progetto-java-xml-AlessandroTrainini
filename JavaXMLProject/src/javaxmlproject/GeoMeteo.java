@@ -28,30 +28,5 @@ import java.util.logging.Logger;
  */
 public class GeoMeteo {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-        try {
-            URL url = new URL("http://www.google.com/");
-            URLConnection con = url.openConnection();
-            
-            BufferedReader in = new BufferedReader(new InputStreamReader(
-                    con.getInputStream()));
-
-// Read it ...
-            String inputLine;
-            
-            PrintWriter XMLWriter = new PrintWriter(new FileWriter("file.xml"));
-            while ((inputLine = in.readLine()) != null)
-                XMLWriter.println(inputLine);
-            
-            in.close();
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(GeoMeteo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(GeoMeteo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+   
 }

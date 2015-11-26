@@ -5,6 +5,8 @@
  */
 package GraphicPackage;
 
+import javaxmlproject.ProxyAuthenticator;
+
 /**
  *
  * @author 70060462
@@ -124,7 +126,8 @@ public class AuthentificationPane extends javax.swing.JFrame {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         proxy=new ProxyAuthenticator (jUserField.getText(), jPswField.getText());
         proxy.initProxy();
-        jPanel1.setVisible(false);
+        new MainFrame().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_okButtonActionPerformed
 
     /**
@@ -161,7 +164,7 @@ public class AuthentificationPane extends javax.swing.JFrame {
             }
         });
     }
-
+    ProxyAuthenticator proxy;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel jLabel1;
