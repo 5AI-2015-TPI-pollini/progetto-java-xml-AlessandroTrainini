@@ -9,7 +9,11 @@ public class ProxyAuthenticator extends Authenticator {
         public ProxyAuthenticator(String userName, String password) {
         this.userName = userName;
         this.password = password;
-        System.setProperty("proxySet", "true");
+           
+    }
+        public void initProxy()
+        {
+            System.setProperty("proxySet", "true");
             System.setProperty("http.proxyHost", "192.168.0.1");
             System.setProperty("http.proxyPort", "8080");
             Authenticator.setDefault(new Authenticator() {
@@ -17,7 +21,7 @@ public class ProxyAuthenticator extends Authenticator {
                     return new PasswordAuthentication(userName,password.toCharArray());
                 }
             });
-    }
+        }
         
             
 

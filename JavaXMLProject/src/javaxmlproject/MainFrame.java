@@ -121,7 +121,7 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-        // TODO add your handling code here:
+        proxy=new ProxyAuthenticator (jUserField.getText(), jPswField.getText());
     }//GEN-LAST:event_okButtonActionPerformed
 
     /**
@@ -158,7 +158,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
-
+    ProxyAuthenticator proxy;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JLabel jLabel1;
