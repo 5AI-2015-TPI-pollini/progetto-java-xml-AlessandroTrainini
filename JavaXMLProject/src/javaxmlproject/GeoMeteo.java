@@ -8,8 +8,10 @@ package javaxmlproject;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Authenticator;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -32,16 +34,6 @@ public class GeoMeteo {
     public static void main(String[] args) {
         
         try {
-            System.setProperty("proxySet", "true");
-            System.setProperty("http.proxyHost", "192.168.0.1");
-            System.setProperty("http.proxyPort", "8080");
-            Authenticator.setDefault(new Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    
-                    return new PasswordAuthentication("NOMEUTENTE","PASSWORD".toCharArray());
-                }
-            });
-            
             URL url = new URL("http://www.google.com/");
             URLConnection con = url.openConnection();
             
@@ -50,8 +42,10 @@ public class GeoMeteo {
 
 // Read it ...
             String inputLine;
+            
+            PrintWriter XMLWriter = new PrintWriter(new FileWriter("file.xml"));
             while ((inputLine = in.readLine()) != null)
-                System.out.println(inputLine);
+                XMLWriter.println(inputLine);
             
             in.close();
         } catch (MalformedURLException ex) {
@@ -59,27 +53,5 @@ public class GeoMeteo {
         } catch (IOException ex) {
             Logger.getLogger(GeoMeteo.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-    
     }
-
-    private static class ProxyAuthenticator extends Authenticator {
-
-        public ProxyAuthenticator(String userName, String password) {
-        this.userName = userName;
-        this.password = password;
-    }
-
-
-
-    private String userName, password;
-
-    protected PasswordAuthentication getPasswordAuthentication() {
-        return new PasswordAuthentication(userName, password.toCharArray());
-    }
-
-    
-
-    }
-    
 }
