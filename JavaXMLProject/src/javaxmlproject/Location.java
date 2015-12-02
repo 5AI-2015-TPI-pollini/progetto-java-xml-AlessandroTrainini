@@ -6,11 +6,6 @@
 
 package javaxmlproject;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import static java.util.stream.DoubleStream.builder;
-import javax.swing.text.Document;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 /**
  *
@@ -22,11 +17,10 @@ public class Location {
 
     @Override
     public String toString() {
-        return "Location{" + "latitude=" + latitude + ", longitude=" + longitude + ", name=" + name + ", extendedName=" + extendedName + ", region=" + region + '}';
+        return "Location{" + "latitude=" + latitude + ", longitude=" + longitude + ", name=" + name + ", extendedName=" + extendedName + '}';
     }
     private String name;
     private String extendedName;
-    private String region;
 
     public Location() {
     }
@@ -36,7 +30,6 @@ public class Location {
         this.longitude = longitude;
         this.name = name;
         this.extendedName = extendedName;
-        this.region=region;
     }
 
     public String getExtendedName() {
