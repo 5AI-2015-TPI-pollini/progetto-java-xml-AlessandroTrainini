@@ -6,6 +6,12 @@
 
 package javaxmlproject;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import static java.util.stream.DoubleStream.builder;
+import javax.swing.text.Document;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 /**
  *
  * @author 70060462
@@ -14,16 +20,29 @@ public class Location {
     private float latitude;
     private float longitude;
     private String name;
+    private String extendedName;
+    private String region;
 
     public Location() {
     }
 
-    public Location(float latitude, float longitude, String name) {
+    public Location(float latitude, float longitude, String name, String extendedName, String region) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.name = name;
+        this.extendedName = extendedName;
+        this.region=region;
     }
 
+    public String getExtendedName() {
+        return extendedName;
+    }
+
+    public void setExtendedName(String extendedName) {
+        this.extendedName = extendedName;
+    }
+
+   
     public float getLatitude() {
         return latitude;
     }
@@ -47,4 +66,5 @@ public class Location {
     public void setName(String name) {
         this.name = name;
     }
+    
 }

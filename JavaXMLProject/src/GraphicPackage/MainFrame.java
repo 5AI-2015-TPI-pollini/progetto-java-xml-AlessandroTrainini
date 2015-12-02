@@ -71,9 +71,10 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        LocationURLGenerator locationURL = new LocationURLGenerator(jTextField1.getText());
         
     }//GEN-LAST:event_jButton1ActionPerformed
- XMLWriter writer;
+ WeatherXMLWriter writer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JTextField jTextField1;

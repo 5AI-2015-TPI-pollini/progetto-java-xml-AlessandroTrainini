@@ -19,22 +19,13 @@ import java.net.URLConnection;
  * @author Alessandro Trainini
  * 
  */
-public class XMLWriter {
-    private URL WeatherURL;
+public class WeatherXMLWriter {
     private URL LocationURL;
 
-    public XMLWriter(URL WeatherURL, URL LocationURL) {
-        this.WeatherURL = WeatherURL;
+    public WeatherXMLWriter(URL LocationURL) {
         this.LocationURL = LocationURL;
     }
 
-    public URL getWeatherURL() {
-        return WeatherURL;
-    }
-
-    public void setWeatherURL(URL WeatherURL) {
-        this.WeatherURL = WeatherURL;
-    }
 
     public URL getLocationURL() {
         return LocationURL;
@@ -45,30 +36,16 @@ public class XMLWriter {
     }
     public void writeXML() throws IOException
     {
-            URLConnection con = WeatherURL.openConnection();
+            URLConnection con = LocationURL.openConnection();
          
             BufferedReader in = new BufferedReader(new InputStreamReader(
                     con.getInputStream()));
 
 // Read it ...
             String inputLine;
-            PrintWriter writer=new PrintWriter(new FileWriter("weather.xml"));
+            PrintWriter writer=new PrintWriter(new FileWriter("location.xml"));
             while ((inputLine = in.readLine()) != null)
                 writer.println(inputLine);
-            writer.close();
-            in.close();
-            
-            
-            
-            con = LocationURL.openConnection();
-         
-            in = new BufferedReader(new InputStreamReader(
-                    con.getInputStream()));
-
-            writer=new PrintWriter(new FileWriter("location.xml"));
-            while ((inputLine = in.readLine()) != null)
-                writer.println(inputLine);
-            
             writer.close();
             in.close();
     }
