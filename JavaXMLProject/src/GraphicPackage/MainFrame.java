@@ -1,6 +1,9 @@
 package GraphicPackage;
 
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javaxmlproject.*;
 
 /*
@@ -71,10 +74,22 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        LocationURLGenerator locationURL = new LocationURLGenerator(jTextField1.getText());
+        System.out.println("ho stampato");
+        try {
+            LocationURLGenerator locationURL = new LocationURLGenerator(jTextField1.getText());
+            writer.writeXML();
+            System.out.println("fatto");
+        } catch (IOException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
- WeatherXMLWriter writer;
+ 
+    
+    
+    
+    LocationXMLWriter writer;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JTextField jTextField1;
