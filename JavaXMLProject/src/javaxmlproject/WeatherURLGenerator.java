@@ -33,6 +33,7 @@ public class WeatherURLGenerator {
     public URL getURL() throws MalformedURLException {
         //create URL String
         String urlText=new String();
+        urlText = URL_PREFIX;
         urlText += LATITUDE_PREFIX;
         urlText +=location.getLatitude();
         urlText +=LONGITUDE_PREFIX;
@@ -40,7 +41,7 @@ public class WeatherURLGenerator {
         urlText +=METRIC_UNITS;
         urlText +=APP_ID;
         urlText +=XML_MODE;
-        
+        System.out.println(urlText);
         return new URL(urlText);
     }
 }

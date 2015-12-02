@@ -34,9 +34,8 @@ public class LocationXMLWriter {
     public void setLocationURL(URL LocationURL) {
         this.LocationURL = LocationURL;
     }
-    public void writeXML() throws IOException
+    public void generateXML() throws IOException
     {
-        System.out.println(LocationURL);
             URLConnection con = LocationURL.openConnection();
         
             BufferedReader in = new BufferedReader(new InputStreamReader(

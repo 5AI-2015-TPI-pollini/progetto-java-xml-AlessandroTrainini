@@ -74,12 +74,11 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("ho stampato");
+        data=new DataHandler(jTextField1.getText());
+        
         try {
-            LocationURLGenerator locationURL = new LocationURLGenerator(jTextField1.getText());
-            writer=new LocationXMLWriter (locationURL.getURL());
-            writer.writeXML();
-        } catch (IOException ex) {
+            data.fillData();
+        } catch (Exception ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -89,7 +88,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     
     
-    LocationXMLWriter writer;
+    DataHandler data;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JTextField jTextField1;
