@@ -30,17 +30,17 @@ public class WeatherURLGenerator {
         this.location=location;
     }
    
-    public URL generateURL() throws MalformedURLException {
+    public URL getURL() throws MalformedURLException {
         //create URL String
-        StringBuilder URLBuilder = new StringBuilder(URL_PREFIX);
-        URLBuilder.append(LATITUDE_PREFIX);
-        URLBuilder.append(location.getLatitude());
-        URLBuilder.append(LONGITUDE_PREFIX);
-        URLBuilder.append(location.getLongitude());
-        URLBuilder.append(METRIC_UNITS);
-        URLBuilder.append(APP_ID);
-        URLBuilder.append(XML_MODE);
+        String urlText=new String();
+        urlText += LATITUDE_PREFIX;
+        urlText +=location.getLatitude();
+        urlText +=LONGITUDE_PREFIX;
+        urlText +=location.getLongitude();
+        urlText +=METRIC_UNITS;
+        urlText +=APP_ID;
+        urlText +=XML_MODE;
         
-        return new URL(URLBuilder.toString());
+        return new URL(urlText);
     }
 }
