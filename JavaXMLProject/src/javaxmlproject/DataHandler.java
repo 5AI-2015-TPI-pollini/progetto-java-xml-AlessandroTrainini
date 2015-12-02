@@ -29,7 +29,7 @@ public class DataHandler {
         filler=new DataFiller();
         
     }
-    public void fillData() throws MalformedURLException, IOException
+    public Data getData() throws MalformedURLException, IOException
     {
         locationWriter=new LocationXMLWriter(locationGenerator.getURL());
         locationWriter.generateXML();
@@ -39,6 +39,8 @@ public class DataHandler {
         weatherWriter=new WeatherXMLWriter(weatherGenerator.getURL());
         weatherWriter.generateXML();
         weather=filler.getWeatherData();
+        
+        return new Data(weather, location);
     }
     
     
