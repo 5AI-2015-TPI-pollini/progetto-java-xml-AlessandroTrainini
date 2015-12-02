@@ -22,9 +22,7 @@ public class WeatherPane extends javax.swing.JFrame {
         initComponents();
         this.data=data;
         Image img = Toolkit.getDefaultToolkit().createImage("frontPanel.jpg");
-
-        this.getGraphics().drawImage(img, 0, 0, this);
-        super.paintComponents(this.getGraphics());
+        pack();
         cityNameLabel.setText(data.getLocation().getExtendedName());
     }
 

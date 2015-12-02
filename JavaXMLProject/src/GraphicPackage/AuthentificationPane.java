@@ -121,6 +121,13 @@ public class AuthentificationPane extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * This method is called when the OKButton is cliccked and allow the proxy 
+     * gestor to activate the proxy and premit the connection, than it open
+     * the MainFrame
+     *
+     * @param evt is the event generated at the click
+     */
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         proxy=new ProxyAuthenticator (jUserField.getText(), new String(jPasswordField1.getPassword()));
         proxy.initProxy();
@@ -128,6 +135,12 @@ public class AuthentificationPane extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_okButtonActionPerformed
 
+    /**
+     * This method is called when the CALCELButton is cliccked and just open
+     * a new MainFrame 
+     * 
+     * @param evt is the event generated at the click 
+     */
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         new MainFrame().setVisible(true);
         this.setVisible(false);
