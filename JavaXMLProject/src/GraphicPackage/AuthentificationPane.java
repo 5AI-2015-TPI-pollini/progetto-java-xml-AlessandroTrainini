@@ -47,6 +47,11 @@ public class AuthentificationPane extends javax.swing.JFrame {
         jLabel3.setText("password");
 
         cancelButton.setText("ANNULLA");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
 
         okButton.setText("OK");
         okButton.addActionListener(new java.awt.event.ActionListener() {
@@ -132,6 +137,11 @@ public class AuthentificationPane extends javax.swing.JFrame {
         new MainFrame().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_okButtonActionPerformed
+
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        new MainFrame().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
      * @param args the command line arguments

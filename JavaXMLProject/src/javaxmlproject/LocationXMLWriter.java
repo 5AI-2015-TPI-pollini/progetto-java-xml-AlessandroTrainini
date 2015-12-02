@@ -38,19 +38,16 @@ public class LocationXMLWriter {
     {
         System.out.println(LocationURL);
             URLConnection con = LocationURL.openConnection();
-         System.out.println("teoricamente ho finito");
+        
             BufferedReader in = new BufferedReader(new InputStreamReader(
                     con.getInputStream()));
-System.out.println("teoricamente ho finito");
+
 // Read it ...
             String inputLine;
             PrintWriter writer=new PrintWriter(new FileWriter("location.xml"));
-            System.out.println("teoricamente ho finito");
             while ((inputLine = in.readLine()) != null)
                 writer.println(inputLine);
             writer.close();
-            System.out.println("teoricamente ho finito");
             in.close();
-            System.out.println("teoricamente ho finito");
     }
 }
