@@ -55,8 +55,21 @@ public class XMLWriter {
             PrintWriter writer=new PrintWriter(new FileWriter("weather.xml"));
             while ((inputLine = in.readLine()) != null)
                 writer.println(inputLine);
+            writer.close();
+            in.close();
             
             
+            
+            con = LocationURL.openConnection();
+         
+            in = new BufferedReader(new InputStreamReader(
+                    con.getInputStream()));
+
+            writer=new PrintWriter(new FileWriter("location.xml"));
+            while ((inputLine = in.readLine()) != null)
+                writer.println(inputLine);
+            
+            writer.close();
             in.close();
     }
 }
