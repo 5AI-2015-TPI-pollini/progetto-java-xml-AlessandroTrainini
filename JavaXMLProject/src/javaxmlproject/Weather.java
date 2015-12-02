@@ -13,14 +13,19 @@ package javaxmlproject;
 public class Weather {
     private String description;
     private float temperature;
-    private float wind;
+    private float pressure;
     private float umidithy;
 
-    public Weather(String description, float temperature, float wind, float umidithy) {
+    public Weather(String description, float temperature, float pressure, float umidithy) {
         this.description = description;
         this.temperature = temperature;
-        this.wind = wind;
+        this.pressure = pressure;
         this.umidithy = umidithy;
+    }
+
+    @Override
+    public String toString() {
+        return "Weather{" + "description=" + description + ", temperature=" + temperature + ", pressure=" + pressure + ", umidithy=" + umidithy + '}';
     }
 
     public Weather() {
@@ -42,12 +47,12 @@ public class Weather {
         this.temperature = temperature;
     }
 
-    public float getWind() {
-        return wind;
+    public float getPressure() {
+        return pressure;
     }
 
-    public void setWind(float wind) {
-        this.wind = wind;
+    public void setPressure(float wind) {
+        this.pressure = wind;
     }
 
     public float getUmidithy() {

@@ -45,5 +45,6 @@ public class WeatherXMLWriter {
                 writer.println(inputLine);
             writer.close();
             in.close();
+            System.out.println("finito");
     }
 }

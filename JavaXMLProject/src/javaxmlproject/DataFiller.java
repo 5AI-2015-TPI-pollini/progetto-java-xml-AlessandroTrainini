@@ -25,8 +25,7 @@ import org.xml.sax.SAXException;
  * @author 70060462
  */
 public class DataFiller {
-    private Weather watehr;
-    private Location location;
+
     
     Document WeatherDoc;
     Document LocationDoc; 
@@ -48,8 +47,8 @@ public class DataFiller {
     }
     public Location getLocationData()
     {
+        Location location=new Location();
         try {
-            location=new Location();
             
             LocationDoc =  builder.parse(new FileInputStream("location.xml"));
             String ExtendedNameExpression = "/GeocodeResponse/result/formatted_address/text()";
@@ -72,7 +71,35 @@ public class DataFiller {
         } catch (Exception ex) {
             Logger.getLogger(DataFiller.class.getName()).log(Level.SEVERE, null, ex);
         }
+        System.out.println(location);
         return location;
+    }
+    
+    public Weather getWeatherData()
+    {
+        Weather weather=new Weather();
+        try{
+            WeatherDoc = builder.parse(new FileInputStream("weather.xml"));
+            
+            String Weather = "/current/clouds/@name";
+            String Temperature = "/current/temperature/@value"; 
+            String Humidity = "/current/humidity/@value"; 
+            String Pressure = "/current/pressure/@value"; 
+            
+            XPath xPath =  XPathFactory.newInstance().newXPath();
+            
+            weather.setDescription(xPath.compile(Weather).evaluate(WeatherDoc));
+            weather.setTemperature(Float.parseFloat(xPath.compile(Temperature).evaluate(WeatherDoc)));
+            weather.setUmidithy(Float.parseFloat(xPath.compile(Humidity).evaluate(WeatherDoc)));
+            weather.setPressure(Float.parseFloat(xPath.compile(Pressure).evaluate(WeatherDoc)));
+
+        }
+        catch(Exception ex)
+        {
+            
+        }
+        System.out.println(weather);
+        return weather;
     }
     
 }

@@ -37,7 +37,8 @@ public class DataHandler {
         
         weatherGenerator=new WeatherURLGenerator (location);
         weatherWriter=new WeatherXMLWriter(weatherGenerator.getURL());
-        //weather=filler.getWeatherData();
+        weatherWriter.generateXML();
+        weather=filler.getWeatherData();
     }
     
     

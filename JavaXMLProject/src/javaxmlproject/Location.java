@@ -19,6 +19,11 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class Location {
     private float latitude;
     private float longitude;
+
+    @Override
+    public String toString() {
+        return "Location{" + "latitude=" + latitude + ", longitude=" + longitude + ", name=" + name + ", extendedName=" + extendedName + ", region=" + region + '}';
+    }
     private String name;
     private String extendedName;
     private String region;
