@@ -24,6 +24,13 @@ public class WeatherPane extends javax.swing.JFrame {
         Image img = Toolkit.getDefaultToolkit().createImage("frontPanel.jpg");
         pack();
         cityNameLabel.setText(data.getLocation().getExtendedName());
+        name.setText(data.getLocation().getName());
+        jLatitude.setText("Latitude: " + data.getLocation().getLatitude());
+        jLongitude.setText("Longitude: " + data.getLocation().getLongitude());
+        jWeather.setText("Weather condition: " + data.getWeather().getDescription());
+        jTemperature.setText("Temperature: " + data.getWeather().getTemperature());
+        jPressure.setText("Pressure: " + data.getWeather().getPressure());
+        jHumidity.setText("Humidity: " + data.getWeather().getUmidithy());
     }
 
     /**
@@ -37,14 +44,23 @@ public class WeatherPane extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         cityNameLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        name = new javax.swing.JLabel();
+        jLatitude = new javax.swing.JLabel();
+        jLongitude = new javax.swing.JLabel();
+        jTemperature = new javax.swing.JLabel();
+        jHumidity = new javax.swing.JLabel();
+        jPressure = new javax.swing.JLabel();
+        jWeather = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cityNameLabel.setText("jLabel1");
+        jPanel1.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel1.setForeground(new java.awt.Color(204, 204, 255));
 
-        jLabel1.setText("jLabel1");
+        cityNameLabel.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
+        cityNameLabel.setForeground(new java.awt.Color(102, 204, 255));
+        cityNameLabel.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -53,31 +69,84 @@ public class WeatherPane extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cityNameLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 731, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(831, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(24, 24, 24)
                 .addComponent(cityNameLabel)
-                .addContainerGap(47, Short.MAX_VALUE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jPanel2.setBackground(new java.awt.Color(217, 217, 217));
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+
+        name.setFont(new java.awt.Font("Calibri Light", 0, 48)); // NOI18N
+        name.setForeground(new java.awt.Color(51, 102, 255));
+        name.setText("jLabel2");
+
+        jLatitude.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLatitude.setForeground(new java.awt.Color(0, 0, 204));
+        jLatitude.setText("jLabel3");
+
+        jLongitude.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLongitude.setForeground(new java.awt.Color(0, 0, 204));
+        jLongitude.setText("jLabel2");
+
+        jTemperature.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jTemperature.setForeground(new java.awt.Color(0, 51, 153));
+        jTemperature.setText("jLabel2");
+
+        jHumidity.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jHumidity.setForeground(new java.awt.Color(0, 51, 153));
+        jHumidity.setText("jLabel2");
+
+        jPressure.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jPressure.setForeground(new java.awt.Color(0, 51, 153));
+        jPressure.setText("jLabel2");
+
+        jWeather.setFont(new java.awt.Font("Calibri Light", 0, 36)); // NOI18N
+        jWeather.setForeground(new java.awt.Color(51, 102, 255));
+        jWeather.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(name)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLatitude)
+                        .addGap(157, 157, 157)
+                        .addComponent(jLongitude))
+                    .addComponent(jTemperature)
+                    .addComponent(jHumidity)
+                    .addComponent(jPressure)
+                    .addComponent(jWeather))
+                .addContainerGap(677, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(name)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLatitude)
+                    .addComponent(jLongitude))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jWeather)
+                .addGap(33, 33, 33)
+                .addComponent(jTemperature)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jHumidity)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPressure)
+                .addGap(40, 40, 40))
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
@@ -94,8 +163,14 @@ public class WeatherPane extends javax.swing.JFrame {
     private Data data;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel cityNameLabel;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jHumidity;
+    private javax.swing.JLabel jLatitude;
+    private javax.swing.JLabel jLongitude;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jPressure;
+    private javax.swing.JLabel jTemperature;
+    private javax.swing.JLabel jWeather;
+    private javax.swing.JLabel name;
     // End of variables declaration//GEN-END:variables
 }
