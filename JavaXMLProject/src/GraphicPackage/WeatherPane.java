@@ -53,13 +53,11 @@ public class WeatherPane extends javax.swing.JFrame {
         jPressure = new javax.swing.JLabel();
         jWeather = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
         jPanel1.setForeground(new java.awt.Color(204, 204, 255));
 
         cityNameLabel.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
-        cityNameLabel.setForeground(new java.awt.Color(102, 204, 255));
+        cityNameLabel.setForeground(new java.awt.Color(0, 255, 255));
         cityNameLabel.setText("jLabel1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -69,7 +67,7 @@ public class WeatherPane extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cityNameLabel)
-                .addContainerGap(831, Short.MAX_VALUE))
+                .addContainerGap(598, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,7 +125,7 @@ public class WeatherPane extends javax.swing.JFrame {
                     .addComponent(jHumidity)
                     .addComponent(jPressure)
                     .addComponent(jWeather))
-                .addContainerGap(677, Short.MAX_VALUE))
+                .addContainerGap(444, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

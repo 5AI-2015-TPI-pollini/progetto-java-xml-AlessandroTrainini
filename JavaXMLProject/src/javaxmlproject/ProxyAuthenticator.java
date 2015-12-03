@@ -10,9 +10,7 @@ public class ProxyAuthenticator extends Authenticator {
     
     public ProxyAuthenticator(String userName, String password) {
         this.userName = userName;
-        System.out.println("f" + userName + password);
         this.password = password;
-        initProxy();
            
     }
         public void initProxy()
@@ -23,7 +21,6 @@ public class ProxyAuthenticator extends Authenticator {
             Authenticator.setDefault(new Authenticator() {
                         @Override
                         public PasswordAuthentication getPasswordAuthentication() {
-                            System.out.println("Ok");
                             return new PasswordAuthentication(userName, password.toCharArray());
                         }
                     });

@@ -42,8 +42,10 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Street XML");
+        setBackground(new java.awt.Color(204, 255, 255));
+
+        optionPane.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel2.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 102, 255));
@@ -56,7 +58,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(optionPaneLayout.createSequentialGroup()
                 .addGap(288, 288, 288)
                 .addComponent(jLabel2)
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         optionPaneLayout.setVerticalGroup(
             optionPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -67,6 +69,8 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         getContentPane().add(optionPane, java.awt.BorderLayout.PAGE_START);
+
+        mainPane.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setText("Inserisci qui la città che ti interessa");
 
@@ -87,7 +91,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(644, Short.MAX_VALUE))
+                .addContainerGap(404, Short.MAX_VALUE))
         );
         mainPaneLayout.setVerticalGroup(
             mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -96,9 +100,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         getContentPane().add(mainPane, java.awt.BorderLayout.CENTER);
@@ -116,7 +120,8 @@ public class MainFrame extends javax.swing.JFrame {
      */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            Data data = new DataHandler(jTextField1.getText()).getData();
+            String name=jTextField1.getText().replaceAll(" ", "");
+            Data data = new DataHandler(name).getData();
             new WeatherPane(data).setVisible(true);
             
                     } catch (IOException ex) {
