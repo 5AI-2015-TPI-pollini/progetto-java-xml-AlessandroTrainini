@@ -37,7 +37,7 @@ public class LocationXMLWriter {
     public void generateXML() throws IOException
     {
             URLConnection con = LocationURL.openConnection();
-        
+            System.out.println(LocationURL);
             BufferedReader in = new BufferedReader(new InputStreamReader(
                     con.getInputStream()));
 

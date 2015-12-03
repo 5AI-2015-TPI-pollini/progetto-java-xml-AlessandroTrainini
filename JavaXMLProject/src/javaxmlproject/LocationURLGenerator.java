@@ -15,7 +15,7 @@ import java.net.URL;
  */
 public class LocationURLGenerator {
     private String nameOfLocation;
-    private String LocationURL="https://maps.googleapis.com/maps/api/geocode/xml?address=";
+    private String LocationURL="http://maps.googleapis.com/maps/api/geocode/xml?address=";
 
     public LocationURLGenerator(String nameOfLocation) {
         this.nameOfLocation = nameOfLocation;

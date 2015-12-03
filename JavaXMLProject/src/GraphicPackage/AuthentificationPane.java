@@ -130,6 +130,7 @@ public class AuthentificationPane extends javax.swing.JFrame {
      */
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         proxy=new ProxyAuthenticator (jUserField.getText(), new String(jPasswordField1.getPassword()));
+        System.out.println(new String(jPasswordField1.getPassword()));
         proxy.initProxy();
         new MainFrame().setVisible(true);
         this.setVisible(false);
