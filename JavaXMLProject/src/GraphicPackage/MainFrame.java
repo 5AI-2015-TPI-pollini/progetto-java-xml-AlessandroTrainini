@@ -41,6 +41,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        loadLabel = new javax.swing.JLabel();
 
         setTitle("Street XML");
         setBackground(new java.awt.Color(204, 255, 255));
@@ -81,6 +82,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        loadLabel.setText("jLabel3");
+
         javax.swing.GroupLayout mainPaneLayout = new javax.swing.GroupLayout(mainPane);
         mainPane.setLayout(mainPaneLayout);
         mainPaneLayout.setHorizontalGroup(
@@ -90,7 +93,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainPaneLayout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(loadLabel)))
                 .addContainerGap(404, Short.MAX_VALUE))
         );
         mainPaneLayout.setVerticalGroup(
@@ -101,7 +107,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGroup(mainPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(loadLabel))
                 .addContainerGap())
         );
 
@@ -121,8 +129,10 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             String name=jTextField1.getText().replaceAll(" ", "");
+            loadLabel.setText("caricamento in corso, attendere...");
             Data data = new DataHandler(name).getData();
             new WeatherPane(data).setVisible(true);
+            loadLabel.setText("");
             
                     } catch (IOException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -138,6 +148,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel loadLabel;
     private javax.swing.JPanel mainPane;
     private javax.swing.JPanel optionPane;
     // End of variables declaration//GEN-END:variables

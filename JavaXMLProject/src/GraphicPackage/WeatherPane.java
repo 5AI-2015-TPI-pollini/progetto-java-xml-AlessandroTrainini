@@ -21,16 +21,14 @@ public class WeatherPane extends javax.swing.JFrame {
     public WeatherPane(Data data) {
         initComponents();
         this.data=data;
-        Image img = Toolkit.getDefaultToolkit().createImage("frontPanel.jpg");
-        pack();
         cityNameLabel.setText(data.getLocation().getExtendedName());
         name.setText(data.getLocation().getName());
         jLatitude.setText("Latitude: " + data.getLocation().getLatitude());
         jLongitude.setText("Longitude: " + data.getLocation().getLongitude());
         jWeather.setText("Weather condition: " + data.getWeather().getDescription());
-        jTemperature.setText("Temperature: " + data.getWeather().getTemperature());
-        jPressure.setText("Pressure: " + data.getWeather().getPressure());
-        jHumidity.setText("Humidity: " + data.getWeather().getUmidithy());
+        jTemperature.setText("Temperature: " + data.getWeather().getTemperature() + "°C");
+        jPressure.setText("Pressure: " + data.getWeather().getPressure() + " Pa");
+        jHumidity.setText("Humidity: " + data.getWeather().getUmidithy() + "%");
     }
 
     /**
@@ -52,6 +50,7 @@ public class WeatherPane extends javax.swing.JFrame {
         jHumidity = new javax.swing.JLabel();
         jPressure = new javax.swing.JLabel();
         jWeather = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 255));
         jPanel1.setForeground(new java.awt.Color(204, 204, 255));
@@ -109,6 +108,13 @@ public class WeatherPane extends javax.swing.JFrame {
         jWeather.setForeground(new java.awt.Color(51, 102, 255));
         jWeather.setText("jLabel2");
 
+        backButton.setText("INDIETRO");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -116,16 +122,22 @@ public class WeatherPane extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(name)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLatitude)
-                        .addGap(157, 157, 157)
-                        .addComponent(jLongitude))
-                    .addComponent(jTemperature)
-                    .addComponent(jHumidity)
-                    .addComponent(jPressure)
-                    .addComponent(jWeather))
-                .addContainerGap(444, Short.MAX_VALUE))
+                        .addComponent(jWeather)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(backButton))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(name)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLatitude)
+                                .addGap(157, 157, 157)
+                                .addComponent(jLongitude))
+                            .addComponent(jTemperature)
+                            .addComponent(jHumidity)
+                            .addComponent(jPressure))
+                        .addGap(0, 434, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +148,7 @@ public class WeatherPane extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLatitude)
                     .addComponent(jLongitude))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(jWeather)
                 .addGap(33, 33, 33)
                 .addComponent(jTemperature)
@@ -144,13 +156,19 @@ public class WeatherPane extends javax.swing.JFrame {
                 .addComponent(jHumidity)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPressure)
-                .addGap(40, 40, 40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(backButton)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_backButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,6 +178,7 @@ public class WeatherPane extends javax.swing.JFrame {
     
     private Data data;
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backButton;
     private javax.swing.JLabel cityNameLabel;
     private javax.swing.JLabel jHumidity;
     private javax.swing.JLabel jLatitude;
