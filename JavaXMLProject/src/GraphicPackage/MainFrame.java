@@ -123,7 +123,6 @@ public class MainFrame extends javax.swing.JFrame {
             String name=jTextField1.getText().replaceAll(" ", "");
             Data data = new DataHandler(name).getData();
             new WeatherPane(data).setVisible(true);
-            loadLabel.setText("");
             
                     } catch (IOException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
